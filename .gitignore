@@ -6,6 +6,7 @@ __pycache__/
 .Python
 venv/
 env/
+aiASSrestaurant_chatbotmember1_rasavenv/
 *.egg-info/
 dist/
 build/
