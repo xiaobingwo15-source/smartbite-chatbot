@@ -1,0 +1,282 @@
+version: "3.1"
+
+stories:
+
+- story: greeting browse menu and goodbye
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: browse_menu
+  - action: utter_menu
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: order nasi lemak check order and goodbye
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: order_food
+    entities:
+    - food_item: nasi lemak
+  - action: action_place_order
+  - slot_was_set:
+    - order_placed: true
+  - intent: check_order
+  - action: action_check_order
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: recommendations order recommended item payment and goodbye
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_recommendation
+  - action: utter_recommendations
+  - intent: order_food
+    entities:
+    - food_item: char kway teow
+  - action: action_place_order
+  - slot_was_set:
+    - order_placed: true
+  - intent: ask_payment
+  - action: utter_payment_info
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: spicy recommendation order modify check and goodbye
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_recommendation
+    entities:
+    - taste_preference: spicy
+  - action: utter_recommendations
+  - intent: order_food
+    entities:
+    - food_item: rendang ayam
+  - action: action_place_order
+  - slot_was_set:
+    - order_placed: true
+  - intent: modify_order
+    entities:
+    - food_item: extra sambal
+  - action: action_modify_order
+  - intent: check_order
+  - action: action_check_order
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: browse menu ask price order complaint and goodbye
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: browse_menu
+  - action: utter_menu
+  - intent: ask_price
+    entities:
+    - food_item: satay
+  - action: utter_price
+  - intent: order_food
+    entities:
+    - food_item: satay
+  - action: action_place_order
+  - slot_was_set:
+    - order_placed: true
+  - intent: complaint_food
+  - action: action_handle_complaint
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: vegetarian request order ask hours and goodbye
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_vegetarian
+  - action: utter_vegetarian_options
+  - intent: order_food
+    entities:
+    - food_item: roti canai
+  - action: action_place_order
+  - slot_was_set:
+    - order_placed: true
+  - intent: ask_hours
+  - action: utter_operating_hours
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: order multiple items check cancel and goodbye
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: order_food
+    entities:
+    - food_item: nasi goreng
+  - action: action_place_order
+  - slot_was_set:
+    - order_placed: true
+  - intent: order_food
+    entities:
+    - food_item: teh tarik
+  - action: action_place_order
+  - intent: check_order
+  - action: action_check_order
+  - intent: cancel_order
+  - action: action_cancel_order
+  - slot_was_set:
+    - order_placed: false
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: budget recommendation order ask location and goodbye
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_recommendation
+    entities:
+    - budget: budget
+  - action: utter_recommendations
+  - intent: order_food
+    entities:
+    - food_item: mee goreng
+  - action: action_place_order
+  - slot_was_set:
+    - order_placed: true
+  - intent: ask_location
+  - action: utter_location
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: order complaint service and goodbye
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: order_food
+    entities:
+    - food_item: laksa
+  - action: action_place_order
+  - slot_was_set:
+    - order_placed: true
+  - intent: complaint_service
+  - action: action_handle_complaint
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: reservation browse menu order and goodbye
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_reservation
+  - action: utter_reservation_info
+  - intent: browse_menu
+  - action: utter_menu
+  - intent: order_food
+    entities:
+    - food_item: chicken rice
+  - action: action_place_order
+  - slot_was_set:
+    - order_placed: true
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: dietary info order modify check and goodbye
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_dietary_info
+    entities:
+    - dietary: halal
+  - action: utter_dietary_info
+  - intent: order_food
+    entities:
+    - food_item: nasi lemak
+  - action: action_place_order
+  - slot_was_set:
+    - order_placed: true
+  - intent: modify_order
+    entities:
+    - food_item: extra egg
+  - action: action_modify_order
+  - intent: check_order
+  - action: action_check_order
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: order add more items check payment and goodbye
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: order_food
+    entities:
+    - food_item: roti canai
+  - action: action_place_order
+  - slot_was_set:
+    - order_placed: true
+  - intent: order_food
+    entities:
+    - food_item: nasi goreng
+  - action: action_place_order
+  - intent: order_food
+    entities:
+    - food_item: teh tarik
+  - action: action_place_order
+  - intent: check_order
+  - action: action_check_order
+  - intent: ask_payment
+  - action: utter_payment_info
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: ask location hours browse menu no order goodbye
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_location
+  - action: utter_location
+  - intent: ask_hours
+  - action: utter_operating_hours
+  - intent: browse_menu
+  - action: utter_menu
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: complaint browse menu order and goodbye
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: complaint_other
+  - action: action_handle_complaint
+  - intent: browse_menu
+  - action: utter_menu
+  - intent: order_food
+    entities:
+    - food_item: char kway teow
+  - action: action_place_order
+  - slot_was_set:
+    - order_placed: true
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: order cancel new order check and goodbye
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: order_food
+    entities:
+    - food_item: mee goreng
+  - action: action_place_order
+  - slot_was_set:
+    - order_placed: true
+  - intent: cancel_order
+  - action: action_cancel_order
+  - slot_was_set:
+    - order_placed: false
+  - intent: order_food
+    entities:
+    - food_item: nasi lemak
+  - action: action_place_order
+  - slot_was_set:
+    - order_placed: true
+  - intent: check_order
+  - action: action_check_order
+  - intent: goodbye
+  - action: utter_goodbye

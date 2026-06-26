@@ -1,0 +1,239 @@
+{
+  "restaurant": {
+    "name": "Warung SmartBite",
+    "cuisine": "Malaysian",
+    "halal": true,
+    "hours": "10:00 AM - 10:00 PM (Daily)",
+    "location": "TARUMT Campus, Setapak, Kuala Lumpur",
+    "phone": "+60 3-1234 5678",
+    "payment": ["Cash", "Touch 'n Go", "GrabPay", "Debit/Credit Card"],
+    "reservation": "Walk-in only. For groups of 8+, call ahead."
+  },
+  "menu": [
+    {
+      "name": "Nasi Lemak",
+      "category": "rice",
+      "price": 8.50,
+      "description": "Fragrant coconut rice with sambal, anchovies, peanuts, egg, and cucumber.",
+      "spicy": true,
+      "vegetarian": false,
+      "tags": ["popular", "signature", "breakfast"]
+    },
+    {
+      "name": "Nasi Goreng",
+      "category": "rice",
+      "price": 9.00,
+      "description": "Malaysian-style fried rice with egg, vegetables, and a choice of chicken or shrimp.",
+      "spicy": true,
+      "vegetarian": false,
+      "tags": ["popular", "lunch"]
+    },
+    {
+      "name": "Nasi Kandar",
+      "category": "rice",
+      "price": 12.00,
+      "description": "Steamed rice with a variety of curries, meats, and side dishes.",
+      "spicy": true,
+      "vegetarian": false,
+      "tags": ["signature", "lunch", "dinner"]
+    },
+    {
+      "name": "Nasi Kerabu",
+      "category": "rice",
+      "price": 10.00,
+      "description": "Blue-tinted rice salad with herbs, fish, and a spicy dressing.",
+      "spicy": true,
+      "vegetarian": false,
+      "tags": ["traditional", "healthy"]
+    },
+    {
+      "name": "Nasi Ayam",
+      "category": "rice",
+      "price": 9.50,
+      "description": "Hainanese chicken rice with poached chicken, fragrant rice, and chili sauce.",
+      "spicy": false,
+      "vegetarian": false,
+      "tags": ["popular", "lunch", "dinner"]
+    },
+    {
+      "name": "Nasi Dagang",
+      "category": "rice",
+      "price": 11.00,
+      "description": "Glutinous rice with tuna curry, pickled vegetables, and hard-boiled egg.",
+      "spicy": true,
+      "vegetarian": false,
+      "tags": ["traditional", "breakfast"]
+    },
+    {
+      "name": "Mee Goreng",
+      "category": "noodles",
+      "price": 8.00,
+      "description": "Spicy fried yellow noodles with tofu, vegetables, and a sweet soy sauce.",
+      "spicy": true,
+      "vegetarian": false,
+      "tags": ["popular", "lunch"]
+    },
+    {
+      "name": "Char Kuey Teow",
+      "category": "noodles",
+      "price": 9.00,
+      "description": "Stir-fried flat rice noodles with shrimp, egg, bean sprouts, and chives.",
+      "spicy": true,
+      "vegetarian": false,
+      "tags": ["popular", "signature"]
+    },
+    {
+      "name": "Laksa",
+      "category": "noodles",
+      "price": 10.00,
+      "description": "Spicy noodle soup with a rich coconut-based broth, shrimp, and tofu puffs.",
+      "spicy": true,
+      "vegetarian": false,
+      "tags": ["signature", "lunch", "dinner"]
+    },
+    {
+      "name": "Curry Mee",
+      "category": "noodles",
+      "price": 9.50,
+      "description": "Yellow noodles in a creamy curry broth with chicken, tofu, and cockles.",
+      "spicy": true,
+      "vegetarian": false,
+      "tags": ["lunch", "dinner"]
+    },
+    {
+      "name": "Mee Rebus",
+      "category": "noodles",
+      "price": 8.50,
+      "description": "Yellow noodles in a thick, sweet potato-based gravy with egg and tofu.",
+      "spicy": true,
+      "vegetarian": false,
+      "tags": ["traditional", "lunch"]
+    },
+    {
+      "name": "Roti Canai",
+      "category": "snacks",
+      "price": 3.50,
+      "description": "Flaky flatbread served with dhal or curry for dipping.",
+      "spicy": false,
+      "vegetarian": true,
+      "tags": ["popular", "breakfast", "snack"]
+    },
+    {
+      "name": "Satay",
+      "category": "snacks",
+      "price": 12.00,
+      "description": "Grilled chicken skewers marinated in spices, served with peanut sauce.",
+      "spicy": true,
+      "vegetarian": false,
+      "tags": ["popular", "signature", "10 sticks"]
+    },
+    {
+      "name": "Popiah",
+      "category": "snacks",
+      "price": 5.00,
+      "description": "Fresh spring rolls filled with jicama, carrots, tofu, and sweet sauce.",
+      "spicy": false,
+      "vegetarian": true,
+      "tags": ["healthy", "snack"]
+    },
+    {
+      "name": "Curry Puff",
+      "category": "snacks",
+      "price": 6.00,
+      "description": "Crispy pastry filled with curried potatoes and chicken, 3 pieces.",
+      "spicy": true,
+      "vegetarian": false,
+      "tags": ["snack", "3 pcs"]
+    },
+    {
+      "name": "Pisang Goreng",
+      "category": "snacks",
+      "price": 4.50,
+      "description": "Crispy fried banana fritters, a popular Malaysian tea-time snack.",
+      "spicy": false,
+      "vegetarian": true,
+      "tags": ["snack", "tea-time"]
+    },
+    {
+      "name": "Teh Tarik",
+      "category": "drinks",
+      "price": 4.00,
+      "description": "Pulled milk tea, a frothy and sweet Malaysian favorite.",
+      "spicy": false,
+      "vegetarian": true,
+      "tags": ["popular", "hot", "signature"]
+    },
+    {
+      "name": "Kopi",
+      "category": "drinks",
+      "price": 3.50,
+      "description": "Traditional Malaysian coffee, rich and aromatic.",
+      "spicy": false,
+      "vegetarian": true,
+      "tags": ["hot", "breakfast"]
+    },
+    {
+      "name": "Sirap Bandung",
+      "category": "drinks",
+      "price": 4.50,
+      "description": "Rose syrup drink with evaporated milk, sweet and refreshing.",
+      "spicy": false,
+      "vegetarian": true,
+      "tags": ["cold", "refreshing"]
+    },
+    {
+      "name": "Milo Ais",
+      "category": "drinks",
+      "price": 4.00,
+      "description": "Iced Milo chocolate malt drink, loved by all ages.",
+      "spicy": false,
+      "vegetarian": true,
+      "tags": ["cold", "popular"]
+    },
+    {
+      "name": "Air Mata Kucing",
+      "category": "drinks",
+      "price": 5.00,
+      "description": "Herbal drink made from longan and winter melon, served chilled.",
+      "spicy": false,
+      "vegetarian": true,
+      "tags": ["cold", "healthy", "refreshing"]
+    },
+    {
+      "name": "Cendol",
+      "category": "desserts",
+      "price": 6.00,
+      "description": "Shaved ice dessert with green rice flour jelly, coconut milk, and palm sugar.",
+      "spicy": false,
+      "vegetarian": true,
+      "tags": ["popular", "signature", "cold"]
+    },
+    {
+      "name": "Ais Kacang",
+      "category": "desserts",
+      "price": 7.00,
+      "description": "Shaved ice with red beans, sweet corn, jelly, and rose syrup.",
+      "spicy": false,
+      "vegetarian": true,
+      "tags": ["popular", "cold"]
+    },
+    {
+      "name": "Kuih-muih",
+      "category": "desserts",
+      "price": 5.00,
+      "description": "Assorted traditional Malay cakes and pastries, 3 pieces.",
+      "spicy": false,
+      "vegetarian": true,
+      "tags": ["traditional", "3 pcs"]
+    },
+    {
+      "name": "Pengat",
+      "category": "desserts",
+      "price": 6.50,
+      "description": "Sweet banana and yam dessert in warm coconut milk.",
+      "spicy": false,
+      "vegetarian": true,
+      "tags": ["traditional", "warm"]
+    }
+  ]
+}

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartBite Chatbot</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts for modern typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Main Chat Container -->
+    <div class="chat-container">
+        <!-- Header with Malaysian flag colors -->
+        <header class="chat-header">
+            <div class="header-content">
+                <div class="bot-avatar">🤖</div>
+                <div class="header-text">
+                    <h1>SmartBite Chatbot 🍽️</h1>
+                    <p class="status">Online | Ready to help</p>
+                </div>
+            </div>
+            <!-- Malaysian flag color accent bar -->
+            <div class="malaysia-accent">
+                <span class="flag-stripe red"></span>
+                <span class="flag-stripe white"></span>
+                <span class="flag-stripe blue"></span>
+                <span class="flag-stripe yellow"></span>
+            </div>
+        </header>
+
+        <!-- Chat Messages Area -->
+        <div class="chat-messages" id="chatMessages">
+            <!-- Welcome message from bot -->
+            <div class="message bot-message">
+                <div class="message-avatar">🤖</div>
+                <div class="message-content">
+                    <p>Welcome to SmartBite! 🍽️</p>
+                    <p>I'm your Malaysian restaurant assistant. How can I help you today?</p>
+                </div>
+            </div>
+
+            <!-- Quick Action Buttons -->
+            <div class="quick-actions">
+                <button class="quick-btn" onclick="sendQuickMessage('show me the menu')">📋 View Menu</button>
+                <button class="quick-btn" onclick="sendQuickMessage('what do you recommend')">⭐ Recommend</button>
+                <button class="quick-btn" onclick="sendQuickMessage('show my order')">🛒 My Order</button>
+                <button class="quick-btn" onclick="sendQuickMessage('what are your hours')">📍 Hours & Location</button>
+            </div>
+        </div>
+
+        <!-- Input Area -->
+        <div class="chat-input-area">
+            <div class="input-container">
+                <input
+                    type="text"
+                    id="userInput"
+                    placeholder="Type your message..."
+                    autocomplete="off"
+                    onkeypress="handleKeyPress(event)"
+                >
+                <button class="send-btn" onclick="sendMessage()">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 2L11 13"></path>
+                        <path d="M22 2L15 22L11 13L2 9L22 2Z"></path>
+                    </svg>
+                </button>
+            </div>
+            <p class="input-hint">Press Enter to send</p>
+        </div>
+    </div>
+
+    <script>
+        // ============================================
+        // SmartBite Chatbot - Frontend JavaScript
+        // ============================================
+
+        // DOM Elements
+        const chatMessages = document.getElementById('chatMessages');
+        const userInput = document.getElementById('userInput');
+
+        /**
+         * Handles Enter key press in input field
+         * @param {KeyboardEvent} event - The keyboard event
+         */
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+
+        /**
+         * Sends a quick action message
+         * @param {string} message - The quick action message to send
+         */
+        function sendQuickMessage(message) {
+            userInput.value = message;
+            sendMessage();
+        }
+
+        /**
+         * Adds a message to the chat display
+         * @param {string} text - The message text
+         * @param {string} sender - 'user' or 'bot'
+         */
+        function addMessage(text, sender) {
+            // Create message element
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${sender}-message`;
+
+            // Add avatar based on sender
+            const avatar = sender === 'user' ? '👤' : '🤖';
+
+            messageDiv.innerHTML = `
+                <div class="message-avatar">${avatar}</div>
+                <div class="message-content">
+                    <p>${text.includes('<br>') || text.includes('<strong>') ? text : text}</p>
+                </div>
+            `;
+
+            // Add animation class
+            messageDiv.style.opacity = '0';
+            messageDiv.style.transform = 'translateY(20px)';
+
+            // Insert before quick actions if they exist
+            const quickActions = chatMessages.querySelector('.quick-actions');
+            if (quickActions) {
+                chatMessages.insertBefore(messageDiv, quickActions);
+            } else {
+                chatMessages.appendChild(messageDiv);
+            }
+
+            // Trigger animation
+            requestAnimationFrame(() => {
+                messageDiv.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+                messageDiv.style.opacity = '1';
+                messageDiv.style.transform = 'translateY(0)';
+            });
+
+            // Scroll to bottom
+            scrollToBottom();
+        }
+
+        /**
+         * Shows typing indicator while bot is processing
+         */
+        function showTypingIndicator() {
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'message bot-message typing-indicator';
+            typingDiv.id = 'typingIndicator';
+            typingDiv.innerHTML = `
+                <div class="message-avatar">🤖</div>
+                <div class="message-content">
+                    <div class="typing-dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            `;
+            chatMessages.appendChild(typingDiv);
+            scrollToBottom();
+        }
+
+        /**
+         * Removes typing indicator
+         */
+        function hideTypingIndicator() {
+            const typingIndicator = document.getElementById('typingIndicator');
+            if (typingIndicator) {
+                typingIndicator.remove();
+            }
+        }
+
+        /**
+         * Scrolls chat to the bottom
+         */
+        function scrollToBottom() {
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        /**
+         * Sends user message to the backend and displays response
+         */
+        async function sendMessage() {
+            const message = userInput.value.trim();
+
+            // Don't send empty messages
+            if (!message) return;
+
+            // Add user message to chat
+            addMessage(message, 'user');
+
+            // Clear input
+            userInput.value = '';
+
+            // Show typing indicator
+            showTypingIndicator();
+
+            try {
+                // Send message to Flask backend
+                const response = await fetch('/webhook', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ message: message })
+                });
+
+                const data = await response.json();
+
+                // Hide typing indicator
+                hideTypingIndicator();
+
+                // Display bot response
+                if (data && data.response) {
+                    // Convert markdown-style formatting to HTML
+                    let responseText = data.response
+                        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                        .replace(/\n/g, '<br>');
+                    addMessage(responseText, 'bot');
+                } else {
+                    addMessage("I'm sorry, I didn't understand that. Could you rephrase?", 'bot');
+                }
+
+            } catch (error) {
+                // Hide typing indicator on error
+                hideTypingIndicator();
+
+                // Show error message
+                console.error('Error:', error);
+                addMessage("Sorry, I'm having trouble connecting. Please try again later.", 'bot');
+            }
+        }
+
+        // Focus input on page load
+        window.addEventListener('load', () => {
+            userInput.focus();
+        });
+    </script>
+</body>
+</html>

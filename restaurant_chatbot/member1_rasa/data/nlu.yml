@@ -1,0 +1,439 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hi
+    - hello
+    - hey there
+    - selamat pagi
+    - good morning
+    - what's up
+    - hiya
+    - greetings
+    - yo
+    - hey
+    - good afternoon
+    - selamat petang
+    - hi there
+    - hello there
+    - howdy
+    - good evening
+    - selamat malam
+    - sup
+
+- intent: goodbye
+  examples: |
+    - bye
+    - goodbye
+    - see you
+    - later
+    - take care
+    - selamat tinggal
+    - bye bye
+    - see ya
+    - gotta go
+    - thanks bye
+    - that's all
+    - nothing else
+    - done
+    - exit
+    - quit
+    - see you later
+    - catch you later
+
+- intent: menu_browse
+  examples: |
+    - show me the menu
+    - what do you have
+    - what's available
+    - what food do you have
+    - show menu
+    - tell me the menu
+    - what can I order
+    - what's on the menu
+    - list the dishes
+    - browse menu
+    - see the food
+    - menu please
+    - what dishes are available
+    - show me what you sell
+    - what's for sale
+    - I want to see the [food menu](category)
+    - show me [drinks](category)
+    - do you have [desserts](category)
+    - what [appetizers](category) do you have
+
+- intent: menu_ask_price
+  examples: |
+    - how much is [nasi lemak](food_item)
+    - price of [satay](food_item)
+    - what's the price of [roti canai](food_item)
+    - how much does [laksa](food_item) cost
+    - price for [mee goreng](food_item)
+    - how much for [teh tarik](food_item)
+    - cost of [nasi goreng](food_item)
+    - what's the price
+    - how much is the [curry puff](food_item)
+    - pricing for [cendol](food_item)
+    - how much for a [drink](food_item)
+    - price list
+    - how expensive is the food
+    - what are the prices
+    - how much should I bring
+    - how much is [chicken rice](food_item)
+    - price of [murtabak](food_item)
+    - what does [nasi kandar](food_item) cost
+    - how much for [kuih](food_item)
+
+- intent: order_place
+  examples: |
+    - I want to order
+    - I'll have [nasi lemak](food_item)
+    - give me [satay](food_item)
+    - can I order
+    - I'd like to order
+    - order [mee goreng](food_item) please
+    - I want [nasi goreng](food_item)
+    - let me get [roti canai](food_item)
+    - I'll take [laksa](food_item)
+    - can I get a [teh tarik](food_item)
+    - add [satay](food_item) to my order
+    - I want to place an order
+    - order for me
+    - help me order
+    - I'm ready to order
+    - I want [2](quantity) [nasi lemak](food_item)
+    - give me [3](quantity) [roti canai](food_item)
+    - I'll have [1](quantity) [chicken rice](food_item)
+    - order [5](quantity) [satay](food_item)
+    - I want [nasi kandar](food_item) and [teh tarik](food_item)
+
+- intent: order_modify
+  examples: |
+    - change to [mee goreng](food_item)
+    - remove the [drink](food_item)
+    - add one more [satay](food_item)
+    - modify my order
+    - switch to [nasi kandar](food_item)
+    - cancel the [laksa](food_item)
+    - add another [roti canai](food_item)
+    - change quantity to [2](quantity)
+    - remove [nasi lemak](food_item)
+    - update my order
+    - actually I want something else
+    - change my order
+    - edit order
+    - modify the quantity
+    - add [3](quantity) more [satay](food_item)
+    - change [mee goreng](food_item) to [nasi goreng](food_item)
+    - remove [2](quantity) items
+    - I want to change the [quantity](preference)
+    - replace [chicken](food_item) with [beef](food_item)
+    - update quantity to [4](quantity)
+
+- intent: order_cancel
+  examples: |
+    - cancel my order
+    - nevermind
+    - forget it
+    - cancel everything
+    - remove all items
+    - start over
+    - clear my order
+    - I don't want to order anymore
+    - cancel the whole order
+    - abort order
+    - reset order
+    - empty my cart
+    - discard order
+    - never mind the order
+    - cancel it
+    - scrap the order
+    - I changed my mind
+
+- intent: order_check
+  examples: |
+    - what did I order
+    - show my order
+    - current order
+    - what's in my order
+    - check my order
+    - view order
+    - order summary
+    - what have I ordered
+    - my cart
+    - show cart
+    - display my order
+    - order status
+    - what's my order so far
+    - review my order
+    - see my selections
+    - how many items in my order
+    - total for my order
+
+- intent: recommend
+  examples: |
+    - what do you recommend
+    - suggest something
+    - popular dishes
+    - what's good here
+    - best dishes
+    - customer favorites
+    - what should I try
+    - your recommendation
+    - what's popular
+    - recommend me something
+    - best sellers
+    - top picks
+    - what's your best dish
+    - chef's recommendation
+    - signature dishes
+    - what do people usually order
+    - any must-try dishes
+
+- intent: recommend_spicy
+  examples: |
+    - something [spicy](preference)
+    - I like it hot
+    - [spicy](preference) food please
+    - any [spicy](preference) dishes
+    - I want something with kick
+    - burn my tongue
+    - extra [spicy](preference)
+    - not too mild
+    - medium [spicy](preference)
+    - hot and [spicy](preference) options
+    - [spicy](preference) recommendations
+    - I love chili
+    - [sambal](food_item) please
+    - pedas
+    - make it [spicy](preference)
+    - I can handle the heat
+    - the hotter the better
+
+- intent: recommend_vegetarian
+  examples: |
+    - [vegetarian](preference) options
+    - no meat please
+    - [veggie](preference) dishes
+    - I'm [vegetarian](preference)
+    - anything without meat
+    - [plant-based](preference) options
+    - [vegetarian](preference) menu
+    - [meat-free](preference) dishes
+    - [vegan](preference) options
+    - no chicken no beef
+    - just vegetables
+    - sayur only
+    - [vegetarian](preference) recommendations
+    - I don't eat meat
+    - [green](preference) options
+    - do you have [tofu](food_item)
+    - any [salad](food_item) options
+
+- intent: recommend_budget
+  examples: |
+    - something [cheap](budget)
+    - [budget](budget) meal
+    - under [RM10](budget)
+    - [affordable](budget) options
+    - [value](budget) meals
+    - [cheap](budget) and good
+    - [budget-friendly](budget)
+    - [low price](budget)
+    - [economical](budget)
+    - student [budget](budget)
+    - save money
+    - [cheapest](budget) options
+    - [bang for buck](budget)
+    - under [RM5](budget)
+    - not [expensive](budget)
+    - [affordable](budget) food
+    - what's [cheap](budget)
+    - [budget](budget) friendly dishes
+
+- intent: dietary_info
+  examples: |
+    - is it [halal](dietary)
+    - any [gluten-free](dietary) options
+    - [allergens](dietary)
+    - is [nasi lemak](food_item) [halal](dietary)
+    - do you have [vegetarian](dietary) food
+    - what contains [nuts](dietary)
+    - is there [dairy](dietary)
+    - food [allergies](dietary)
+    - [ingredients](dietary) list
+    - [nutritional](dietary) info
+    - is this [spicy](dietary)
+    - contains [pork](dietary)?
+    - [halal](dietary) certified
+    - [allergy](dietary) information
+    - [dietary](dietary) restrictions
+    - does [laksa](food_item) contain [shellfish](dietary)
+    - is [roti canai](food_item) [vegan](dietary)
+    - what's in [nasi goreng](food_item)
+
+- intent: complaint_food
+  examples: |
+    - food is [cold](food_issue)
+    - [wrong order](food_issue)
+    - tastes [bad](food_issue)
+    - this is not what I ordered
+    - the food is [terrible](food_issue)
+    - [nasi lemak](food_item) is [bland](food_issue)
+    - [sambal](food_item) too [spicy](food_issue)
+    - food is [stale](food_issue)
+    - [undercooked](food_issue)
+    - [overcooked](food_issue)
+    - [hair in my food](food_issue)
+    - food quality is [poor](food_issue)
+    - this tastes [weird](food_issue)
+    - [not fresh](food_issue)
+    - [bad taste](food_issue)
+    - the [satay](food_item) is [burnt](food_issue)
+    - [roti canai](food_item) is too [oily](food_issue)
+
+- intent: complaint_service
+  examples: |
+    - waiting too long
+    - [slow service](service_issue)
+    - been waiting [30 minutes](service_issue)
+    - where is my food
+    - service is [terrible](service_issue)
+    - nobody is attending
+    - [long wait](service_issue)
+    - too [slow](service_issue)
+    - hurry up
+    - when will my food arrive
+    - still waiting
+    - took forever
+    - staff is [rude](service_issue)
+    - [poor service](service_issue)
+    - no one came
+    - I've been waiting for ages
+    - the service here is unacceptable
+
+- intent: complaint_other
+  examples: |
+    - [dirty table](other_issue)
+    - [rude staff](other_issue)
+    - restaurant is [dirty](other_issue)
+    - [bathroom is filthy](other_issue)
+    - too [noisy](other_issue)
+    - [uncomfortable seats](other_issue)
+    - [noisy environment](other_issue)
+    - [bad experience](other_issue)
+    - not coming back
+    - [terrible place](other_issue)
+    - [overpriced](other_issue)
+    - not worth the money
+    - [broken chair](other_issue)
+    - [hot inside](other_issue)
+    - [no air conditioning](other_issue)
+    - the floor is [sticky](other_issue)
+    - [mosquitoes](other_issue) everywhere
+
+- intent: ask_hours
+  examples: |
+    - when are you open
+    - what time do you close
+    - operating hours
+    - business hours
+    - open until what time
+    - what time open
+    - closing time
+    - are you open now
+    - open today?
+    - weekend hours
+    - holiday hours
+    - breakfast hours
+    - lunch hours
+    - dinner hours
+    - last order time
+    - are you open on [weekends](time_info)
+    - what time does [lunch](time_info) start
+    - do you open [early](time_info)
+
+- intent: ask_location
+  examples: |
+    - where are you
+    - address
+    - how to get there
+    - location
+    - directions
+    - where is the restaurant
+    - are you in [KL](location)
+    - which area
+    - GPS location
+    - landmark near you
+    - near [TARUMT](location)?
+    - how to find you
+    - your address
+    - map
+    - Waze link
+    - are you near [KLCC](location)
+    - which [street](location) are you on
+    - are you in [Setapak](location)
+
+- intent: ask_reservation
+  examples: |
+    - book a table
+    - reserve for [4](quantity)
+    - I want to make a reservation
+    - table for [2](quantity)
+    - can I book
+    - reservation for tonight
+    - reserve a seat
+    - do you take reservations
+    - booking
+    - table reservation
+    - reserve for [6](quantity) people
+    - large group booking
+    - [VIP room](preference) available?
+    - [private dining](preference)
+    - walk-in ok?
+    - table for [8](quantity) please
+    - can I book a [private room](preference)
+    - reservation for [tomorrow night](time_info)
+
+- intent: ask_payment
+  examples: |
+    - do you accept [card](payment_method)
+    - payment methods
+    - can I pay by [touch n go](payment_method)
+    - [cash](payment_method) only?
+    - accept [grabpay](payment_method)
+    - [credit card](payment_method) accepted?
+    - how to pay
+    - [e-wallet](payment_method) ok?
+    - [QR payment](payment_method)
+    - [pay wave](payment_method)
+    - [debit card](payment_method)
+    - [online payment](payment_method)
+    - installment
+    - split bill
+    - payment options
+    - can I use [boost](payment_method)
+    - do you take [fpx](payment_method)
+    - can we [split the bill](payment_method)
+
+- intent: thanks
+  examples: |
+    - thank you
+    - thanks a lot
+    - appreciate it
+    - thanks for the help
+    - terima kasih
+    - thank you so much
+    - thanks dear
+    - cheers
+    - much appreciated
+    - tq
+    - thx
+    - ty
+    - thanks for your help
+    - really helpful
+    - thanks buddy
+    - that's very helpful
+    - thanks for the info

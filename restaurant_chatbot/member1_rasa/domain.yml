@@ -1,0 +1,132 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - menu_browse
+  - menu_ask_price
+  - order_place
+  - order_modify
+  - order_cancel
+  - order_check
+  - recommend
+  - recommend_spicy
+  - recommend_vegetarian
+  - recommend_budget
+  - dietary_info
+  - complaint_food
+  - complaint_service
+  - complaint_other
+  - ask_hours
+  - ask_location
+  - ask_reservation
+  - ask_payment
+  - thanks
+
+entities:
+  - food_item
+  - category
+  - quantity
+  - preference
+  - budget
+
+slots:
+  food_item:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: food_item
+  category:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: category
+  quantity:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: quantity
+  preference:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: preference
+  budget:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: budget
+  order_list:
+    type: list
+    influence_conversation: false
+    mappings:
+      - type: custom
+
+responses:
+  utter_greet:
+    - text: "Welcome to Warung SmartBite! 🍽️ Selamat datang! How can I help you today?"
+
+  utter_goodbye:
+    - text: "Thank you for visiting Warung SmartBite! Selamat jalan! See you again! 👋"
+
+  utter_menu:
+    - text: >-
+        Here's our menu:\n\n🍚 RICE: Nasi Lemak, Nasi Goreng, Nasi Kandar, Nasi Kerabu, Nasi Ayam, Nasi Dagang\n🍜 NOODLES: Mee Goreng, Char Kuey Teow, Laksa, Curry Mee, Mee Rebus\n🍢 SNACKS: Roti Canai, Satay, Popiah, Curry Puff, Pisang Goreng\n☕ DRINKS: Teh Tarik, Kopi, Sirap Bandung, Milo Ais, Air Mata Kucing\n🍧 DESSERTS: Cendol, Ais Kacang, Kuih-muih, Pengat\n\nWhat would you like to order?
+
+  utter_recommend:
+    - text: >-
+        Our top picks! ⭐\n1. Nasi Lemak - Our signature dish! (RM8.50)\n2. Satay - Customer favorite! (RM12.00)\n3. Char Kuey Teow - Wok-fried perfection! (RM9.00)\n4. Teh Tarik - The perfect drink! (RM4.00)\n5. Cendol - Sweet & refreshing! (RM6.00)
+
+  utter_recommend_spicy:
+    - text: >-
+        🔥 Spicy picks for you!\n1. Nasi Lemak - With our fiery sambal! (RM8.50)\n2. Laksa - Spicy coconut curry noodles! (RM10.00)\n3. Curry Mee - Rich & spicy curry! (RM9.50)\n4. Mee Goreng - Spicy fried noodles! (RM8.00)\n5. Nasi Kandar - With spicy curry gravy! (RM12.00)
+
+  utter_recommend_vegetarian:
+    - text: >-
+        🌿 Vegetarian-friendly options!\n1. Roti Canai - With dhal! (RM3.50)\n2. Popiah - Fresh spring rolls! (RM5.00)\n3. Curry Puff - Veggie filling! (RM6.00)\n4. Pisang Goreng - Crispy banana fritters! (RM4.50)\n5. Cendol - Sweet dessert! (RM6.00)
+
+  utter_recommend_budget:
+    - text: >-
+        💰 Budget-friendly meals under RM10!\n1. Roti Canai - RM3.50\n2. Pisang Goreng - RM4.50\n3. Teh Tarik - RM4.00\n4. Mee Goreng - RM8.00\n5. Nasi Lemak - RM8.50\n\nMix and match for a satisfying meal!
+
+  utter_hours:
+    - text: "🕐 We're open daily from 10:00 AM to 10:00 PM. Last order is at 9:30 PM."
+
+  utter_location:
+    - text: >-
+        📍 We're located at:\nWarung SmartBite\nTARUMT Campus, Setapak\n53300 Kuala Lumpur\n\nNear the main entrance, ground floor!
+
+  utter_reservation:
+    - text: >-
+        📞 For reservations:\n- Walk-in: No reservation needed!\n- Groups of 8+: Please call +60 3-1234 5678\n- VIP room available for 15+ people
+
+  utter_payment:
+    - text: >-
+        💳 Payment methods accepted:\n- Cash\n- Touch 'n Go\n- GrabPay\n- Debit/Credit Card (PayWave)\n- QR Payment
+
+  utter_dietary:
+    - text: >-
+        ℹ️ Dietary info:\n- ✅ All food is HALAL certified\n- 🌶️ Spicy dishes are marked on the menu\n- 🌿 Vegetarian options available\n- ⚠️ Please inform us of any allergies!
+
+  utter_complaint_apology:
+    - text: "We're really sorry about that! 😔 Let me help fix this right away. Can you tell me more about the issue?"
+
+  utter_thanks:
+    - text: "You're welcome! 😊 Anything else I can help with?"
+
+  utter_default:
+    - text: "I'm not sure I understand. You can ask about our menu, place an order, or get recommendations!"
+
+actions:
+  - action_place_order
+  - action_modify_order
+  - action_cancel_order
+  - action_check_order
+  - action_show_menu_by_category
+  - action_recommend_dish
+  - action_handle_complaint

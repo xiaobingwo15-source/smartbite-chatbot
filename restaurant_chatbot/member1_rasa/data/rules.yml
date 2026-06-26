@@ -1,0 +1,54 @@
+version: "3.1"
+
+rules:
+
+- rule: greet
+  conversation_start: true
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+- rule: goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: menu browse
+  steps:
+  - intent: menu_browse
+  - action: utter_menu
+
+- rule: ask hours
+  steps:
+  - intent: ask_hours
+  - action: utter_hours
+
+- rule: ask location
+  steps:
+  - intent: ask_location
+  - action: utter_location
+
+- rule: ask reservation
+  steps:
+  - intent: ask_reservation
+  - action: utter_reservation
+
+- rule: ask payment
+  steps:
+  - intent: ask_payment
+  - action: utter_payment
+
+- rule: dietary info
+  steps:
+  - intent: dietary_info
+  - action: utter_dietary
+
+- rule: thanks
+  steps:
+  - intent: thanks
+  - action: utter_thanks
+
+- rule: fallback
+  steps:
+  - intent: nlu_fallback
+  - action: utter_default
