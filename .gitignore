@@ -33,3 +33,9 @@ Thumbs.db
 # Environment
 .env
 .env.local
+
+# Documentation (not project code)
+*.md
+TARUMT_Assignment_Instructions.md
+IMPLEMENTATION_PLAN.md
+README.md
