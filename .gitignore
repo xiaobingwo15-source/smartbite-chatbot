@@ -6,7 +6,6 @@ __pycache__/
 .Python
 venv/
 env/
-aiASSrestaurant_chatbotmember1_rasavenv/
 *.egg-info/
 dist/
 build/
@@ -33,8 +32,3 @@ Thumbs.db
 # Environment
 .env
 .env.local
-
-# Documentation (not project code)
-*.md
-TARUMT_Assignment_Instructions.md
-IMPLEMENTATION_PLAN.md
