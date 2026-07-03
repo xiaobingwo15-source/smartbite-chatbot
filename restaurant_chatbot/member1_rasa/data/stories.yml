@@ -6,7 +6,7 @@ stories:
   steps:
   - intent: greet
   - action: utter_greet
-  - intent: browse_menu
+  - intent: menu_browse
   - action: utter_menu
   - intent: goodbye
   - action: utter_goodbye
@@ -15,13 +15,11 @@ stories:
   steps:
   - intent: greet
   - action: utter_greet
-  - intent: order_food
+  - intent: order_place
     entities:
     - food_item: nasi lemak
   - action: action_place_order
-  - slot_was_set:
-    - order_placed: true
-  - intent: check_order
+  - intent: order_check
   - action: action_check_order
   - intent: goodbye
   - action: utter_goodbye
@@ -30,16 +28,14 @@ stories:
   steps:
   - intent: greet
   - action: utter_greet
-  - intent: ask_recommendation
-  - action: utter_recommendations
-  - intent: order_food
+  - intent: recommend
+  - action: utter_recommend
+  - intent: order_place
     entities:
-    - food_item: char kway teow
+    - food_item: char kuey teow
   - action: action_place_order
-  - slot_was_set:
-    - order_placed: true
   - intent: ask_payment
-  - action: utter_payment_info
+  - action: utter_payment
   - intent: goodbye
   - action: utter_goodbye
 
@@ -47,21 +43,17 @@ stories:
   steps:
   - intent: greet
   - action: utter_greet
-  - intent: ask_recommendation
+  - intent: recommend_spicy
+  - action: utter_recommend_spicy
+  - intent: order_place
     entities:
-    - taste_preference: spicy
-  - action: utter_recommendations
-  - intent: order_food
-    entities:
-    - food_item: rendang ayam
+    - food_item: nasi lemak
   - action: action_place_order
-  - slot_was_set:
-    - order_placed: true
-  - intent: modify_order
+  - intent: order_modify
     entities:
-    - food_item: extra sambal
+    - food_item: nasi goreng
   - action: action_modify_order
-  - intent: check_order
+  - intent: order_check
   - action: action_check_order
   - intent: goodbye
   - action: utter_goodbye
@@ -70,18 +62,16 @@ stories:
   steps:
   - intent: greet
   - action: utter_greet
-  - intent: browse_menu
+  - intent: menu_browse
   - action: utter_menu
-  - intent: ask_price
+  - intent: menu_ask_price
     entities:
     - food_item: satay
-  - action: utter_price
-  - intent: order_food
+  - action: utter_recommend
+  - intent: order_place
     entities:
     - food_item: satay
   - action: action_place_order
-  - slot_was_set:
-    - order_placed: true
   - intent: complaint_food
   - action: action_handle_complaint
   - intent: goodbye
@@ -91,16 +81,14 @@ stories:
   steps:
   - intent: greet
   - action: utter_greet
-  - intent: ask_vegetarian
-  - action: utter_vegetarian_options
-  - intent: order_food
+  - intent: recommend_vegetarian
+  - action: utter_recommend_vegetarian
+  - intent: order_place
     entities:
     - food_item: roti canai
   - action: action_place_order
-  - slot_was_set:
-    - order_placed: true
   - intent: ask_hours
-  - action: utter_operating_hours
+  - action: utter_hours
   - intent: goodbye
   - action: utter_goodbye
 
@@ -108,22 +96,18 @@ stories:
   steps:
   - intent: greet
   - action: utter_greet
-  - intent: order_food
+  - intent: order_place
     entities:
     - food_item: nasi goreng
   - action: action_place_order
-  - slot_was_set:
-    - order_placed: true
-  - intent: order_food
+  - intent: order_place
     entities:
     - food_item: teh tarik
   - action: action_place_order
-  - intent: check_order
+  - intent: order_check
   - action: action_check_order
-  - intent: cancel_order
+  - intent: order_cancel
   - action: action_cancel_order
-  - slot_was_set:
-    - order_placed: false
   - intent: goodbye
   - action: utter_goodbye
 
@@ -131,16 +115,12 @@ stories:
   steps:
   - intent: greet
   - action: utter_greet
-  - intent: ask_recommendation
-    entities:
-    - budget: budget
-  - action: utter_recommendations
-  - intent: order_food
+  - intent: recommend_budget
+  - action: utter_recommend_budget
+  - intent: order_place
     entities:
     - food_item: mee goreng
   - action: action_place_order
-  - slot_was_set:
-    - order_placed: true
   - intent: ask_location
   - action: utter_location
   - intent: goodbye
@@ -150,12 +130,10 @@ stories:
   steps:
   - intent: greet
   - action: utter_greet
-  - intent: order_food
+  - intent: order_place
     entities:
     - food_item: laksa
   - action: action_place_order
-  - slot_was_set:
-    - order_placed: true
   - intent: complaint_service
   - action: action_handle_complaint
   - intent: goodbye
@@ -166,15 +144,13 @@ stories:
   - intent: greet
   - action: utter_greet
   - intent: ask_reservation
-  - action: utter_reservation_info
-  - intent: browse_menu
+  - action: utter_reservation
+  - intent: menu_browse
   - action: utter_menu
-  - intent: order_food
+  - intent: order_place
     entities:
-    - food_item: chicken rice
+    - food_item: nasi ayam
   - action: action_place_order
-  - slot_was_set:
-    - order_placed: true
   - intent: goodbye
   - action: utter_goodbye
 
@@ -182,21 +158,17 @@ stories:
   steps:
   - intent: greet
   - action: utter_greet
-  - intent: ask_dietary_info
-    entities:
-    - dietary: halal
-  - action: utter_dietary_info
-  - intent: order_food
+  - intent: dietary_info
+  - action: utter_dietary
+  - intent: order_place
     entities:
     - food_item: nasi lemak
   - action: action_place_order
-  - slot_was_set:
-    - order_placed: true
-  - intent: modify_order
+  - intent: order_modify
     entities:
-    - food_item: extra egg
+    - food_item: nasi goreng
   - action: action_modify_order
-  - intent: check_order
+  - intent: order_check
   - action: action_check_order
   - intent: goodbye
   - action: utter_goodbye
@@ -205,24 +177,22 @@ stories:
   steps:
   - intent: greet
   - action: utter_greet
-  - intent: order_food
+  - intent: order_place
     entities:
     - food_item: roti canai
   - action: action_place_order
-  - slot_was_set:
-    - order_placed: true
-  - intent: order_food
+  - intent: order_place
     entities:
     - food_item: nasi goreng
   - action: action_place_order
-  - intent: order_food
+  - intent: order_place
     entities:
     - food_item: teh tarik
   - action: action_place_order
-  - intent: check_order
+  - intent: order_check
   - action: action_check_order
   - intent: ask_payment
-  - action: utter_payment_info
+  - action: utter_payment
   - intent: goodbye
   - action: utter_goodbye
 
@@ -233,8 +203,8 @@ stories:
   - intent: ask_location
   - action: utter_location
   - intent: ask_hours
-  - action: utter_operating_hours
-  - intent: browse_menu
+  - action: utter_hours
+  - intent: menu_browse
   - action: utter_menu
   - intent: goodbye
   - action: utter_goodbye
@@ -245,14 +215,12 @@ stories:
   - action: utter_greet
   - intent: complaint_other
   - action: action_handle_complaint
-  - intent: browse_menu
+  - intent: menu_browse
   - action: utter_menu
-  - intent: order_food
+  - intent: order_place
     entities:
-    - food_item: char kway teow
+    - food_item: char kuey teow
   - action: action_place_order
-  - slot_was_set:
-    - order_placed: true
   - intent: goodbye
   - action: utter_goodbye
 
@@ -260,23 +228,17 @@ stories:
   steps:
   - intent: greet
   - action: utter_greet
-  - intent: order_food
+  - intent: order_place
     entities:
     - food_item: mee goreng
   - action: action_place_order
-  - slot_was_set:
-    - order_placed: true
-  - intent: cancel_order
+  - intent: order_cancel
   - action: action_cancel_order
-  - slot_was_set:
-    - order_placed: false
-  - intent: order_food
+  - intent: order_place
     entities:
     - food_item: nasi lemak
   - action: action_place_order
-  - slot_was_set:
-    - order_placed: true
-  - intent: check_order
+  - intent: order_check
   - action: action_check_order
   - intent: goodbye
   - action: utter_goodbye
