@@ -67,6 +67,28 @@ slots:
     influence_conversation: false
     mappings:
       - type: custom
+  modify_type:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        intent: order_modify
+  food_item_new:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        intent: order_modify
+  complaint_type:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        intent: complaint_food
+      - type: from_text
+        intent: complaint_service
+      - type: from_text
+        intent: complaint_other
 
 responses:
   utter_greet:
@@ -119,6 +141,9 @@ responses:
 
   utter_thanks:
     - text: "You're welcome! 😊 Anything else I can help with?"
+
+  utter_price:
+    - text: "Sure! Which item would you like to know the price of? You can ask about any dish on our menu."
 
   utter_default:
     - text: "I'm not sure I understand. You can ask about our menu, place an order, or get recommendations!"

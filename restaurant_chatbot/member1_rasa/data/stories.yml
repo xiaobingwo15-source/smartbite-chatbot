@@ -67,7 +67,7 @@ stories:
   - intent: menu_ask_price
     entities:
     - food_item: satay
-  - action: utter_recommend
+  - action: utter_price
   - intent: order_place
     entities:
     - food_item: satay

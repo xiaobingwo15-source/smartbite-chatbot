@@ -18,6 +18,11 @@ rules:
   - intent: menu_browse
   - action: utter_menu
 
+- rule: menu ask price
+  steps:
+  - intent: menu_ask_price
+  - action: utter_price
+
 - rule: ask hours
   steps:
   - intent: ask_hours
